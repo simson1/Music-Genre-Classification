@@ -1,0 +1,54 @@
+<div fxLayoutAlign="center center" fxLayout="column">
+    <h1>Music Genre Classification Model - Example</h1>
+
+    <div class="home__training">
+        <h3>Train Classification Model (Support Vector Machine)</h3>
+        <md-card fxLayoutAlign="center center" fxLayout="column">
+            <h4>Set Parameter for Model Training</h4>
+            <md-input-container>
+                <input
+                    mdInput
+                    name="C Parameter"
+                    placeholder="C Parameter"
+                    [(ngModel)]="svcParameters.C">
+            </md-input-container>
+            <md-input-container>
+                <input
+                    mdInput
+                    name="gamma Parameter"
+                    placeholder="gamma Parameter"
+                    [(ngModel)]="svcParameters.gamma">
+            </md-input-container>
+            <md-input-container>
+                <input
+                    mdInput
+                    name="kernel Parameter"
+                    placeholder="kernel Parameter"
+                    [(ngModel)]="svcParameters.kernel">
+            </md-input-container>
+            <md-input-container>
+                <input
+                    mdInput
+                    name="degree Parameter"
+                    placeholder="degree Parameter"
+                    [(ngModel)]="svcParameters.degree">
+            </md-input-container>
+            <button md-raised-button (click)="trainModel()">
+                Train model
+            </button>
+        </md-card>
+
+        <div *ngIf="svcResult"
+             fxLayoutAlign="center center"
+             fxLayout="column">
+            <h4>Training Accuracy</h4>
+            <ngx-charts-linear-gauge
+                [view]="[300, 100]"
+                [value]="svcResult.accuracy"
+                [min]="0"
+                [max]="100"
+                [units]="'% accuracy'">
+            </ngx-charts-linear-gauge>
+        </div>
+    </div>
+</div>

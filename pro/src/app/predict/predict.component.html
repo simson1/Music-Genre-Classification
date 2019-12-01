@@ -1,0 +1,21 @@
+<div fxLayoutAlign="center center" fxLayout="column">
+  <h1>Music Genre Classification Model - Example</h1>
+  <div class="home__predict">
+    <h3>Train Classification Model (Support Vector Machine)</h3>
+    <md-card fxLayoutAlign="center center" fxLayout="column">
+        <h4>Upload File for Model Training</h4>
+  <input id="myForm" type="file" name="file" (change)="postMethod($event.target.files)">
+  </md-card>
+  <div *ngIf="probabilityPredictions"
+             fxLayoutAlign="center center"
+             fxLayout="column"
+             class="home__chart-container">
+            <h4>Prediction Result</h4>
+            <ngx-charts-pie-chart
+                [results]="probabilityPredictions"
+                [labels]="true"
+                [legend]="false">
+            </ngx-charts-pie-chart>
+  </div>
+  </div>
+  </div>
